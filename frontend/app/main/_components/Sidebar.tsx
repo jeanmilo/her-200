@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Avatar, Icon } from "./ui";
+import { Avatar, Icon, Logo } from "./ui";
 import { useSession } from "./session";
 import { initials } from "@/lib/api";
 
@@ -18,14 +18,7 @@ export default function Sidebar() {
   const { user, logout } = useSession();
   return (
     <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col border-r border-border bg-surface px-5 py-8 md:flex">
-      <Link href="/main" className="flex items-center gap-2 px-2 text-xl font-semibold tracking-tight">
-        <span className="relative h-7 w-7">
-          <span className="absolute left-0 top-0 h-4 w-4 rounded-full bg-secondary" />
-          <span className="absolute right-0 top-0 h-4 w-4 rounded-full bg-primary" />
-          <span className="absolute bottom-0 left-1.5 h-4 w-4 rounded-full bg-border-strong" />
-        </span>
-        connect<span className="text-primary">HER</span>
-      </Link>
+      <Logo href="/main" className="px-2" />
 
       <p className="mt-12 px-2 text-xs font-medium uppercase tracking-[0.2em] text-subtle">Your space</p>
       <nav className="mt-3 space-y-1">

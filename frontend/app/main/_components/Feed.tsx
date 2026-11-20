@@ -8,7 +8,7 @@ import { initials, timeAgo, type FeedPost } from "@/lib/api";
 // The backend has no posts endpoint yet, so posts made on the home page are stored in this browser.
 const LOCAL_KEY = "localPosts";
 
-function readLocalPosts(): FeedPost[] {
+export function readLocalPosts(): FeedPost[] {
   try {
     return JSON.parse(localStorage.getItem(LOCAL_KEY) ?? "[]");
   } catch {
@@ -58,7 +58,7 @@ export default function Feed() {
       </div>
       <Status loading={loading} empty={!loading && (posts?.length ?? 0) === 0} emptyText="No posts yet." />
       {posts?.map((p) => (
-        <article key={p.id} className="border-b border-border py-8">
+        <article key={p.id} id={`post-${p.id}`} className="scroll-mt-28 border-b border-border py-8">
           <div className="flex items-start gap-4">
             <Avatar initials={initials(p.author_name)} />
             <div className="flex-1">

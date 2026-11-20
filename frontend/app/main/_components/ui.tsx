@@ -63,3 +63,16 @@ export function EmptyState({ icon, eyebrow = "Your space", title, text }: { icon
     </div>
   );
 }
+
+export function Logo({ href = "/", className = "" }: { href?: string; className?: string }) {
+  return (
+    <Link href={href} className={`flex items-center gap-2 text-xl font-semibold tracking-tight ${className}`}>
+      <span className="relative h-7 w-7">
+        <span className="absolute left-0 top-0 h-4 w-4 rounded-full bg-secondary" />
+        <span className="absolute right-0 top-0 h-4 w-4 rounded-full bg-primary" />
+        <span className="absolute bottom-0 left-1.5 h-4 w-4 rounded-full bg-border-strong" />
+      </span>
+      connect<span className="text-primary">HER</span>
+    </Link>
+  );
+}
